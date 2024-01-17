@@ -8,55 +8,68 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-
-        <div class="search-box">
-            <i class='bx bxs-map'></i>
-            <input type="text" placeholder="search location" >
-            <button class="bx bx-search"></button>
-        </div>
-
-
-
-        <div class="weather-box">
-            <div class="box">
-                <info-weather>
-                    <div class="weather">
-                        <img src="images/cloud.png">
-                        <p class="temperature">16 <span>°C</span></p>
-                        <p class="description">Broken Clouds</p>
-                    </div>
-                </info-weather>
-            </div>
-        </div>
-
-
-        <div class="weather-details">
-            <div class="humidity">
-                <i class='bx bx-water'></i>
-                <div class="text">
-                    <div class="info-humidity">
-                        <span>0%</span>
-                    </div>
+<div class="card">
+    <div class="search">
+        <input type="text" placeholder="enter city name" spellcheck="false">
+        <button><img src="images/search.png"></button>    
+    </div>
+    <div class="weather">
+        <img src="images/cloud.png" class="weather-icon">
+        <h1 class="temp">22°C</h1>
+        <h2 class="city">New York</h2>
+        <div class="details">
+            <div class="col">
+                <img src="images/water-regular-24.png" alt="">
+                <div>
+                    <p class="humidity">50%</p>
                     <p>Humidity</p>
                 </div>
             </div>
-            <div class="wind">
-                <i class='bx bx-wind' ></i>
-                <div class="text">
-                    <div class="info-wind">
-                        <span>0km/h</span>
-                    </div>
+            <div class="col">
+                <img src="images/wind.png" alt="">
+                <div>
+                    <p class="wind">15 km/h</p>
                     <p>Wind Speed</p>
                 </div>
             </div>
         </div>
-
-        
-        
-
-        <script src="script.js"></script>
     </div>
-    
+</div>
+    <script>
+        const apiKey = '3bbd4431bce3c92fe3f3b93ce4a683b7';
+        const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=imperial&q=";
+
+        const searchBox = document.querySelector(".search input");
+        const searchBtn = document.querySelector(".search button");
+        const weatherIcon = document.querySelector("weather-icon");
+      
+        async function checkWeather(city){
+            const response = await fetch (apiUrl + city + `&appid=${apiKey}`);
+            var data = await response.json();
+
+            console.log(data);
+
+            document.querySelector(".city").innerHTML = data.name;
+            document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°C";
+            document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
+            document.querySelector(".wind").innerHTML = data.wind.speed + " km/h";
+
+            if(data.weather[0].main == 'Clouds'){
+                weatherIcon.src ="images/cloud.png";
+            } else if(data.weather[0].main == 'Clear'){
+                weatherIcon.src ="images/clear.png";
+            } else if(data.weather[0].main == 'Snow'){
+                
+            }
+
+        }
+
+        searchBtn.addEventListener("click", ()=>{
+            checkWeather(searchBox.value);
+
+        } )
+
+        checkWeather()
+    </script>
 </body>
 </html>

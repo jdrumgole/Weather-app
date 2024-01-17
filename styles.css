@@ -2,145 +2,93 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: url('images/wp8351546.jpg');
+    background: url(/images/wp8351546.jpg) no-repeat center center fixed;
     background-size: cover;
-    background-position: center;
 }
-.container{
-    position: relative;
-    width: 400px;
-    height: 555px;
+.card{
+    width: 90%;
+    max-width: 470px;
     background: rgba(255, 255, 255, .1);
     backdrop-filter: blur(10px);
-    border: 2px solid rgba(255, 255, 255, .2);
-    border-radius: 16px;
-    padding: 20px;
     color: #fff;
+    margin: 100px auto 0;
+    border-radius: 20px;
+    padding: 40px 35px;
+    text-align: center;
 }
 
-.search-box{
-    position: relative;
+.search {
     width: 100%;
-    height: 55px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
-.search-box input {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: transparent;
-    border: 2px solid rgba(255, 255, 255, .2);
-    outline: none;
-    border-radius: 10px;
-    font-size: 22px;
-    color: #fff;
-    font-weight: 500;
-    text-transform: uppercase;
-    padding: 0 48px 0 42px;
+.search input{
+    border: 0;
+    outline: 0;
+    background: #ebfffc;
+    color: #555;
+    padding: 10px 25px;
+    height: 60px;
+    border-radius: 30px;
+    flex: 1;
+    margin-right: 16px;
+    font-size: 18px;
 }
 
-.search-box input::placeholder {
-    color: #fff;
-    text-transform: capitalize;
-}
-
-.search-box button {
-    position: absolute;
-    right: 0;
-    width: 40px;
-    height: 100%;
-    background: transparent;
-    border: none;
-    outline: none;
-    font-size: 28px;
-    color: #fff;
-    padding: 0 40px 0 5px;
+.search button {
+    border: 0;
+    outline: 0;
+    background: #ebfffc;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
     cursor: pointer;
 }
 
-.search-box i{
-    position: absolute;
-    left: 10px;
-    font-size: 28px;
+.search button img{
+    width: 16px;
+}
+.weather-icon{
+    width: 170px;
+    margin-top: 30px;
 }
 
-.weather-box{
-    text-align: center;
-    margin: 40px 0;
+.weather h1{
+   font-size: 80px;
+   font-weight: 500; 
 }
 
-.weather-box img {
-width: 60%;
-}
+.weather h2{
+    font-size: 45px;
+    font-weight: 400; 
+    margin-top: -10px;
+ }
 
-.weather-box .temperature{
-    position: relative;
-    font-size: 64px;
-    line-height: 1;
-    font-weight: 700;
-    margin: 20px 0 6px -30px;
-}
-
-.weather-box .temperature span {
-position: absolute;
-font-size: 24px;
-margin-left: 4px;
-}
-
-.weather-box .description {
-    font-size: 22px;
-    font-weight: 500;
-    text-transform: capitalize;
-}
-
-.weather-details {
-    position: absolute;
-    bottom: 40px;
-    left: 0;
-    width: 100%;
-    padding: 0 20px;
-    display: flex;
-}
-
-.weather-details .humidity,
-.weather-details .wind {
+ .details{
     display: flex;
     align-items: center;
-    width: 50%;
-}
+    justify-content: space-between;
+    padding: 0 20px;
+    margin-top: 50px;
+ }
 
-.weather-details .humidity {
-    padding-left: 20px;
-    justify-content: flex-start;
-}
-
-.weather-details .wind {
-    padding-left: 20px;
-    justify-content: flex-end;
-}
-
-.weather-details i {
-    font-size: 56px;
+ .col{
+    display: flex;
+    align-items: center;
+    text-align: left;
+ }
+ .col img{
+    width: 40px;
     margin-right: 10px;
-}
+ }
 
-.weather-details span {
-    display: inline-block;
-    font-size: 22px;
-    font-weight: 500;
-}
-
-.weather-details p {
-    font-size: 14px;
-    font-weight: 500;
-}
+ .humidity, .wind{
+    font-size: 28px;
+    margin-top: -6px;
+ }
